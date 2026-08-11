@@ -16,8 +16,8 @@ export default function ProductCard({ item }: { item: MenuItem }) {
       </div>
       <div className="flex flex-1 flex-col gap-1.5 p-4">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-serif text-base font-semibold leading-snug text-coffee">{item.name}</h3>
-          <span className="shrink-0 whitespace-nowrap font-serif text-base font-semibold text-olive-dark">
+          <h3 className="font-title text-base font-bold leading-snug text-coffee">{item.name}</h3>
+          <span className="shrink-0 whitespace-nowrap font-sans text-base font-semibold text-olive-dark">
             {formatPrice(item.price)}
           </span>
         </div>

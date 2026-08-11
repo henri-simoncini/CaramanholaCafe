@@ -18,7 +18,10 @@ export default function CardapioPage() {
       <main className="mx-auto max-w-3xl px-5 pb-16">
         <div className="pt-8 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Cardápio</p>
-          <h1 className="mt-2 font-serif text-3xl font-bold text-coffee">Sabor em cada detalhe</h1>
+          <h1 className="mt-2 font-title text-3xl font-bold text-coffee">Sabor em cada detalhe</h1>
+          <p className="mt-1 font-script text-2xl text-olive-dark">
+            Cafés especiais, lanches artesanais e doces que acolhem.
+          </p>
         </div>
 
         {/* Produto em destaque */}
@@ -38,8 +41,8 @@ export default function CardapioPage() {
           </div>
           <div className="p-5">
             <div className="flex items-start justify-between gap-3">
-              <h2 className="font-serif text-xl font-semibold">{featuredItem.name}</h2>
-              <span className="whitespace-nowrap font-serif text-xl font-semibold text-olive-light">
+              <h2 className="font-title text-xl font-bold">{featuredItem.name}</h2>
+              <span className="whitespace-nowrap font-sans text-xl font-semibold text-olive-light">
                 {formatPrice(featuredItem.price)}
               </span>
             </div>
@@ -49,14 +52,14 @@ export default function CardapioPage() {
 
         {/* Mais pedidos */}
         <section className="mt-10">
-          <h2 className="font-serif text-xl font-semibold text-coffee">Mais pedidos</h2>
+          <h2 className="font-title text-xl font-bold text-coffee">Mais pedidos</h2>
           <ol className="mt-4 space-y-3">
             {mostOrdered.map((item, index) => (
               <li
                 key={item.id}
                 className="flex items-center gap-4 rounded-2xl bg-white p-3 shadow-sm ring-1 ring-coffee/5"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-olive/10 font-serif text-sm font-bold text-olive-dark">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-olive/10 font-sans text-sm font-bold text-olive-dark">
                   {index + 1}
                 </span>
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
@@ -66,7 +69,7 @@ export default function CardapioPage() {
                   <p className="truncate font-medium text-coffee">{item.name}</p>
                   <p className="truncate text-xs text-coffee/60">{item.description}</p>
                 </div>
-                <span className="shrink-0 font-serif text-sm font-semibold text-olive-dark">
+                <span className="shrink-0 font-sans text-sm font-semibold text-olive-dark">
                   {formatPrice(item.price)}
                 </span>
               </li>
@@ -76,7 +79,7 @@ export default function CardapioPage() {
 
         {/* Cardápio completo */}
         <section className="mt-10">
-          <h2 className="font-serif text-xl font-semibold text-coffee">Cardápio completo</h2>
+          <h2 className="font-title text-xl font-bold text-coffee">Cardápio completo</h2>
           <div className="mt-4">
             <MenuBrowser sticky />
           </div>

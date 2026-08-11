@@ -58,8 +58,12 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-coffee/70" />
           <div className="relative z-10 mx-auto max-w-3xl px-5 text-center text-cream">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-olive-light">Seja bem-vindo</p>
-            <h1 className="mt-4 font-serif text-5xl font-bold sm:text-7xl">Caramanhola</h1>
-            <p className="mt-3 font-serif text-2xl sm:text-3xl">Lanches &amp; café</p>
+            <h1 className="mt-4 font-title text-5xl font-bold tracking-wide sm:text-7xl">
+              Caramanhola
+            </h1>
+            <p className="mt-1 font-script text-4xl text-olive-light sm:text-5xl">
+              Lanches &amp; café
+            </p>
             <p className="mx-auto mt-5 max-w-xl text-base text-cream/85 sm:text-lg">{siteConfig.slogan}</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
@@ -87,7 +91,7 @@ export default function HomePage() {
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Sobre a loja</p>
-                <h2 className="mt-3 font-serif text-3xl font-bold text-coffee sm:text-4xl">
+                <h2 className="mt-3 font-title text-3xl font-bold text-coffee sm:text-4xl">
                   Muito mais que café e lanches
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-coffee/75">
@@ -157,10 +161,10 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Cardápio</p>
-              <h2 className="mt-3 font-serif text-3xl font-bold text-coffee sm:text-4xl">
+              <h2 className="mt-3 font-title text-3xl font-bold text-coffee sm:text-4xl">
                 Sabores para todos os momentos
               </h2>
-              <p className="mt-4 text-base text-coffee/75">
+              <p className="mt-3 font-script text-2xl text-olive-dark sm:text-3xl">
                 Do cafezinho da manhã ao lanche da tarde, prepare-se para se apaixonar por cada item.
               </p>
             </div>
@@ -181,7 +185,7 @@ export default function HomePage() {
             {/* Banner QR code */}
             <div className="mt-16 flex flex-col items-center gap-6 rounded-3xl bg-coffee px-6 py-10 text-center text-cream sm:flex-row sm:justify-between sm:text-left">
               <div>
-                <h3 className="font-serif text-2xl font-semibold">
+                <h3 className="font-title text-2xl font-bold">
                   Veja o cardápio completo na mesa!
                 </h3>
                 <p className="mt-2 max-w-md text-sm text-cream/80">
@@ -223,7 +227,7 @@ export default function HomePage() {
             <div className="grid gap-10 lg:grid-cols-2">
               <div className="flex flex-col justify-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Contato</p>
-                <h2 className="mt-3 font-serif text-3xl font-bold text-coffee sm:text-4xl">Fale com a gente</h2>
+                <h2 className="mt-3 font-title text-3xl font-bold text-coffee sm:text-4xl">Fale com a gente</h2>
                 <p className="mt-4 text-base leading-relaxed text-coffee/75">
                   Dúvidas, encomendas ou sugestões? Nossa equipe está pronta para te atender pelo WhatsApp.
                 </p>
