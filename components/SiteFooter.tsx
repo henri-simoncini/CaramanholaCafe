@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FacebookIcon, InstagramIcon, MapPinIcon } from "./icons";
 import { siteConfig } from "@/data/site";
@@ -16,8 +17,16 @@ export default function SiteFooter() {
     <footer className="bg-coffee text-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-4">
         <div>
-          <p className="font-serif text-2xl font-semibold">Caramanhola</p>
-          <p className="mt-2 text-sm text-cream/70">Lanches &amp; café</p>
+          <Image
+            src="/logo.png"
+            alt="Logotipo da Caramanhola Café"
+            width={274}
+            height={274}
+            className="h-20 w-20 rounded-full"
+          />
+          <p className="mt-3 text-sm text-cream/70">
+            Café, lanches e boas histórias para o seu dia ser melhor.
+          </p>
         </div>
 
         <div>

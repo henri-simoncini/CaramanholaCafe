@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { CloseIcon, MenuIcon, WhatsAppIcon } from "./icons";
@@ -11,8 +12,15 @@ export default function CardapioHeader() {
   return (
     <header className="sticky top-0 z-40 bg-coffee text-cream shadow-md">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
-        <Link href="/" className="font-serif text-lg font-semibold tracking-wide">
-          Caramanhola
+        <Link href="/" aria-label="Caramanhola Lanches &amp; Café — início">
+          <Image
+            src="/logo.png"
+            alt="Logotipo da Caramanhola Café"
+            width={274}
+            height={274}
+            priority
+            className="h-11 w-11 rounded-full"
+          />
         </Link>
 
         <button

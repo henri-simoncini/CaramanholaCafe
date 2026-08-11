@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { CloseIcon, MenuIcon, WhatsAppIcon } from "./icons";
@@ -18,8 +19,15 @@ export default function SiteHeader() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-coffee/95 backdrop-blur text-cream shadow-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <Link href="/#inicio" className="font-serif text-xl font-semibold tracking-wide">
-          Caramanhola
+        <Link href="/#inicio" aria-label="Caramanhola Lanches &amp; Café — início">
+          <Image
+            src="/logo.png"
+            alt="Logotipo da Caramanhola Café"
+            width={274}
+            height={274}
+            priority
+            className="h-12 w-12 rounded-full sm:h-14 sm:w-14"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
