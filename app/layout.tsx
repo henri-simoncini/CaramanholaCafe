@@ -1,34 +1,24 @@
 import type { Metadata } from "next";
-import { Caveat, Poppins, Quicksand } from "next/font/google";
+import { Caveat, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 /**
  * TÍTULOS — Caviar Dreams
  *
- * A Caviar Dreams não existe no Google Fonts (é distribuída como arquivo
- * avulso), então aqui usamos a Quicksand — geométrica arredondada, o
- * substituto livre mais próximo — até que o arquivo da fonte seja adicionado.
+ * Auto-hospedada: a fonte não existe no Google Fonts. Os .woff2 em app/fonts/
+ * foram convertidos dos .ttf originais (62% menores) e são servidos pelo
+ * próprio domínio, sem requisição externa.
  *
- * Para trocar pela definitiva:
- *   1. salve CaviarDreams.woff2 e CaviarDreams-Bold.woff2 em app/fonts/
- *   2. substitua este bloco por:
- *
- *      import localFont from "next/font/local";
- *      const title = localFont({
- *        src: [
- *          { path: "./fonts/CaviarDreams.woff2", weight: "400", style: "normal" },
- *          { path: "./fonts/CaviarDreams-Bold.woff2", weight: "700", style: "normal" },
- *        ],
- *        variable: "--font-title",
- *        display: "swap",
- *      });
- *
- * Nenhuma outra mudança é necessária: os títulos já usam só os pesos 400 e
- * 700, que são os únicos que a Caviar Dreams tem.
+ * Só existem os pesos 400 e 700 — a família não tem intermediários, então
+ * evite font-semibold (600) em títulos: o navegador simularia o peso e o
+ * traço sairia deformado.
  */
-const title = Quicksand({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+const title = localFont({
+  src: [
+    { path: "./fonts/CaviarDreams-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/CaviarDreams-Bold.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-title",
   display: "swap",
 });

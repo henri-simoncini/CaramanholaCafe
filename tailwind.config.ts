@@ -26,8 +26,8 @@ const config: Config = {
       fontFamily: {
         // Corpo de texto (padrão) — Poppins
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
-        // Títulos — Caviar Dreams (hoje servida pela Quicksand, ver app/layout.tsx)
-        title: ["var(--font-title)", "Quicksand", "system-ui", "sans-serif"],
+        // Títulos — Caviar Dreams (auto-hospedada, ver app/layout.tsx). Só 400 e 700.
+        title: ["var(--font-title)", "system-ui", "sans-serif"],
         // Subtítulos — Caveat
         script: ["var(--font-script)", "cursive"],
       },
