@@ -9,10 +9,15 @@ const ALL = "todos" as const;
 export default function MenuBrowser({
   highlightOnly = false,
   sticky = false,
+  maxColumns = 4,
 }: {
   // Quando true, a aba "Todos" mostra só os itens marcados como destaque (usado na prévia da landing)
   highlightOnly?: boolean;
   sticky?: boolean;
+  // A landing usa container largo (max-w-6xl) e comporta 4 colunas; a página
+  // /cardapio é estreita (max-w-3xl) e com 4 o card fica tão apertado que o
+  // preço chega a ser cortado — daí 3.
+  maxColumns?: 3 | 4;
 }) {
   const [active, setActive] = useState<string>(ALL);
 
@@ -53,7 +58,13 @@ export default function MenuBrowser({
         ))}
       </div>
 
-      <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 2 colunas já no mobile: segue o design e evita que o cardápio completo
+          vire uma rolagem interminável no celular (o uso principal, via QR code) */}
+      <div
+        className={`mt-4 grid grid-cols-2 gap-3 sm:gap-5 ${
+          maxColumns === 4 ? "lg:grid-cols-4" : "md:grid-cols-3"
+        }`}
+      >
         {filtered.map((item) => (
           <ProductCard key={item.id} item={item} />
         ))}

@@ -81,7 +81,7 @@ export default function CardapioPage() {
         <section className="mt-10">
           <h2 className="font-title text-xl font-bold text-coffee">Cardápio completo</h2>
           <div className="mt-4">
-            <MenuBrowser sticky />
+            <MenuBrowser sticky maxColumns={3} />
           </div>
         </section>
       </main>

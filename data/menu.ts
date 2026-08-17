@@ -1,3 +1,15 @@
+/**
+ * Dados do cardápio. Editar aqui altera a landing page e a página /cardapio.
+ *
+ * IMAGENS — todas são PLACEHOLDER e devem ser trocadas pelas fotos reais dos
+ * produtos antes de divulgar o site.
+ *
+ * A maioria vem do Unsplash (licença livre, sem atribuição obrigatória). Pão de
+ * queijo, coxinha, torta de limão e refrigerante vêm do Wikimedia Commons,
+ * porque o Unsplash não tem fotos desses itens — e duas delas, marcadas
+ * individualmente abaixo, são CC BY-SA 4.0 e EXIGEM atribuição enquanto
+ * estiverem no ar. Substituir pelas fotos próprias resolve a questão.
+ */
 export type CategoryId = "cafes" | "salgados" | "doces" | "bebidas" | "combos";
 
 export interface Category {
@@ -71,7 +83,8 @@ export const menuItems: MenuItem[] = [
     description: "Receita mineira tradicional, quentinho e com casquinha crocante.",
     price: 6.5,
     category: "salgados",
-    image: "https://images.unsplash.com/photo-1619691416728-2b7c4d0c8a5b?auto=format&fit=crop&w=800&q=80",
+    // Wikimedia Commons, "Cheesebread.jpg" — CC BY-SA 4.0 (exige atribuição)
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Cheesebread.jpg/960px-Cheesebread.jpg",
     popularRank: 2,
     highlight: true,
   },
@@ -91,7 +104,8 @@ export const menuItems: MenuItem[] = [
     description: "Massa cremosa recheada com frango desfiado temperado, frita na hora.",
     price: 8,
     category: "salgados",
-    image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+    // Wikimedia Commons, "Coxa creme.jpg" — CC BY-SA 4.0 (exige atribuição)
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Coxa_creme.jpg/960px-Coxa_creme.jpg",
   },
   {
     id: "ciabatta-especial",
@@ -127,7 +141,8 @@ export const menuItems: MenuItem[] = [
     description: "Base amanteigada, creme de limão e merengue maçaricado.",
     price: 10,
     category: "doces",
-    image: "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=800&q=80",
+    // Wikimedia Commons, "Lemon meringue tart cake.jpg" — domínio público
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Lemon_meringue_tart_cake.jpg/960px-Lemon_meringue_tart_cake.jpg",
   },
   {
     id: "cookie",
@@ -169,7 +184,10 @@ export const menuItems: MenuItem[] = [
     description: "Opções variadas, sempre geladas.",
     price: 6,
     category: "bebidas",
-    image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=800&q=80",
+    // A imagem anterior do Unsplash trazia uma lata de marca registrada, o que
+    // não pode aparecer no cardápio. Wikimedia Commons, "Glass cola.jpg" —
+    // domínio público, sem marca visível.
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Glass_cola.jpg/960px-Glass_cola.jpg",
   },
 
   // Combos
