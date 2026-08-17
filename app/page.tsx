@@ -13,7 +13,7 @@ import {
   StarIcon,
   WhatsAppIcon,
 } from "@/components/icons";
-import { siteConfig, whatsappLink } from "@/data/site";
+import { mapsEmbedUrl, siteConfig, whatsappLink } from "@/data/site";
 
 const differentiators = [
   {
@@ -243,15 +243,19 @@ export default function HomePage() {
 
                 <div className="mt-8 flex items-start gap-2 text-sm text-coffee/75">
                   <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-olive-dark" />
-                  <span>{siteConfig.address}</span>
+                  <span>
+                    {siteConfig.address}
+                    <br />
+                    CEP {siteConfig.cep}
+                  </span>
                 </div>
               </div>
 
               <div className="h-80 overflow-hidden rounded-3xl shadow-lg lg:h-full">
-                {/* Placeholder do Google Maps — sem necessidade de chave de API */}
+                {/* Google Maps sem necessidade de chave de API */}
                 <iframe
                   title="Localização da Caramanhola no Google Maps"
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(siteConfig.address)}&output=embed`}
+                  src={mapsEmbedUrl}
                   className="h-full w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

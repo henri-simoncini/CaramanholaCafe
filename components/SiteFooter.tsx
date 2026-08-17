@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FacebookIcon, InstagramIcon, MapPinIcon } from "./icons";
-import { siteConfig } from "@/data/site";
+import { mapsUrl, siteConfig } from "@/data/site";
 
 const navLinks = [
   { href: "/#inicio", label: "Início" },
@@ -57,13 +57,17 @@ export default function SiteFooter() {
         <div>
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-olive-light">Onde estamos</p>
           <a
-            href={siteConfig.mapsUrl}
+            href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-start gap-2 text-sm text-cream/80 transition hover:text-olive-light"
           >
             <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0" />
-            {siteConfig.address}
+            <span>
+              {siteConfig.address}
+              <br />
+              CEP {siteConfig.cep}
+            </span>
           </a>
           <div className="mt-4 flex gap-3">
             <a
