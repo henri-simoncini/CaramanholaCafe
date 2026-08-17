@@ -241,6 +241,18 @@ export default function HomePage() {
                   Conversar no WhatsApp
                 </a>
 
+                {/* Número visível: quem quer salvar o contato ou ligar não
+                    consegue fazer isso a partir de um botão só */}
+                <p className="mt-4 text-sm text-coffee/75">
+                  Ou ligue para{" "}
+                  <a
+                    href={`tel:+${siteConfig.whatsappNumber}`}
+                    className="font-semibold text-olive-dark underline-offset-2 hover:underline"
+                  >
+                    {siteConfig.whatsappDisplay}
+                  </a>
+                </p>
+
                 <div className="mt-8 flex items-start gap-2 text-sm text-coffee/75">
                   <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-olive-dark" />
                   <span>

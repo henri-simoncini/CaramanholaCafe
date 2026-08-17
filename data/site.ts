@@ -3,8 +3,11 @@ export const siteConfig = {
   fullName: "Caramanhola Lanches & Café",
   tagline: "Lanches & café",
   slogan: "O sabor que acompanha seus melhores momentos.",
-  // Placeholder — trocar pelo número real do WhatsApp da loja.
-  whatsappNumber: "5511999998888",
+  // Formato exigido pelo wa.me: só dígitos, com país (55) e DDD (22), sem
+  // espaços nem traços.
+  whatsappNumber: "5522988272205",
+  // Mesmo número, formatado para leitura humana.
+  whatsappDisplay: "(22) 98827-2205",
   whatsappMessage: "Olá! Vim pelo site da Caramanhola e gostaria de mais informações.",
   // O logradouro ("Rua das Flores, 123") ainda é placeholder — só a cidade está
   // correta. Trocar pelo endereço real da loja.
