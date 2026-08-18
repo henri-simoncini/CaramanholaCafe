@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Poppins } from "next/font/google";
+import { Caveat, Montserrat, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -20,6 +20,19 @@ const title = localFont({
     { path: "./fonts/CaviarDreams-Bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-title",
+  display: "swap",
+});
+
+/**
+ * TÍTULO DO HERO — Montserrat Black
+ *
+ * Só o peso 900. A Caviar Dreams continua nos demais títulos: ela é leve e
+ * aberta demais para o tipo gigante do hero, onde o modelo pede peso.
+ */
+const display = Montserrat({
+  subsets: ["latin"],
+  weight: ["900"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -53,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${title.variable} ${script.variable} ${body.variable}`}
+      className={`${display.variable} ${title.variable} ${script.variable} ${body.variable}`}
     >
       <body className="font-sans bg-cream text-coffee antialiased">{children}</body>
     </html>

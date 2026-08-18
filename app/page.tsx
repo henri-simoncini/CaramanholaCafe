@@ -45,7 +45,7 @@ function SobreSection() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-terracotta">Sobre a loja</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Sobre a loja</p>
             <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
               Muito mais que café e lanches
             </h2>
@@ -58,7 +58,7 @@ function SobreSection() {
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {differentiators.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="flex gap-3">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-terracotta">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-olive/10 text-olive">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
@@ -117,7 +117,7 @@ function CardapioSection() {
     <section className="bg-cream-dark py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-terracotta">Cardápio</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Cardápio</p>
           <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
             Sabores para todos os momentos
           </h2>
@@ -186,7 +186,7 @@ function ContatoSection() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-terracotta">Contato</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Contato</p>
             <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
               Fale com a gente
             </h2>
@@ -197,7 +197,7 @@ function ContatoSection() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-terracotta px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-terracotta-dark"
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
             >
               <WhatsAppIcon className="h-5 w-5" />
               Conversar no WhatsApp
@@ -209,14 +209,14 @@ function ContatoSection() {
               Ou ligue para{" "}
               <a
                 href={`tel:+${siteConfig.whatsappNumber}`}
-                className="font-semibold text-terracotta underline-offset-2 hover:underline"
+                className="font-semibold text-olive underline-offset-2 hover:underline"
               >
                 {siteConfig.whatsappDisplay}
               </a>
             </p>
 
             <div className="mt-8 flex items-start gap-2 text-sm text-coffee/75">
-              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-terracotta" />
+              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-olive" />
               <span>
                 {siteConfig.address}
                 <br />

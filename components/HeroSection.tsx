@@ -44,17 +44,19 @@ export default function HeroSection() {
               esticava a coluna para ~634px numa tela de 375px, e o
               overflow-hidden da seção só escondia o estrago. */}
           <div className="min-w-0">
-            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-terracotta">
+            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-olive">
               <span aria-hidden="true" className="inline-flex gap-1">
-                <span className="h-2 w-2 rounded-full bg-terracotta" />
-                <span className="h-2 w-2 rounded-full bg-terracotta/40" />
+                <span className="h-2 w-2 rounded-full bg-olive" />
+                <span className="h-2 w-2 rounded-full bg-olive/40" />
               </span>
               Café · pão de queijo e mais
             </p>
 
-            <h1 className="mt-5 font-title text-[3.5rem] font-bold uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
+            {/* Montserrat Black (900) só aqui: é o peso que sustenta o tipo
+                gigante do modelo. Os demais títulos seguem na Caviar Dreams. */}
+            <h1 className="mt-5 font-display text-[3.5rem] font-black uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
               <span className="block">Pare.</span>
-              <span className="block text-terracotta">Respire.</span>
+              <span className="block text-olive">Respire.</span>
               <span className="block">Repita.</span>
             </h1>
 
@@ -66,7 +68,7 @@ export default function HeroSection() {
             <div className="mt-8 flex flex-wrap gap-3">
               <TabLink
                 to="cardapio"
-                className="rounded-full bg-terracotta px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-terracotta-dark"
+                className="rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
               >
                 Ver cardápio
               </TabLink>
@@ -74,7 +76,7 @@ export default function HeroSection() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-terracotta/50 px-8 py-4 text-xs font-bold uppercase tracking-wide text-terracotta transition hover:bg-terracotta/5"
+                className="inline-flex items-center gap-2 rounded-full border border-olive/50 px-8 py-4 text-xs font-bold uppercase tracking-wide text-olive transition hover:bg-olive/5"
               >
                 <WhatsAppIcon className="h-4 w-4" />
                 Fale conosco
@@ -87,7 +89,7 @@ export default function HeroSection() {
             {/* Formas decorativas atrás da foto, como no modelo */}
             <div
               aria-hidden="true"
-              className="absolute -top-6 right-6 h-56 w-56 rounded-full bg-terracotta/20 lg:h-72 lg:w-72"
+              className="absolute -top-6 right-6 h-56 w-56 rounded-full bg-olive/20 lg:h-72 lg:w-72"
             />
             <div
               aria-hidden="true"
@@ -108,7 +110,7 @@ export default function HeroSection() {
 
             <div className="relative z-10 mx-auto -mt-10 w-[92%] rounded-2xl bg-coffee p-5 text-cream shadow-2xl lg:absolute lg:-bottom-6 lg:right-0 lg:mt-0 lg:w-[19rem]">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-terracotta-light">
+                <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-olive-lightest">
                   Mais pedidos
                 </p>
                 <TabLink
@@ -137,7 +139,7 @@ export default function HeroSection() {
                         {item.description}
                       </p>
                     </div>
-                    <span className="shrink-0 text-sm font-semibold text-terracotta-light">
+                    <span className="shrink-0 text-sm font-semibold text-olive-lightest">
                       {formatPrice(item.price)}
                     </span>
                   </li>
@@ -151,7 +153,7 @@ export default function HeroSection() {
         <div className="mt-16 grid gap-8 border-t border-coffee/10 pt-10 sm:grid-cols-3 lg:mt-24">
           {perks.map(({ icon: Icon, title, text }) => (
             <div key={title} className="flex gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-terracotta/30 text-terracotta">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-olive/30 text-olive">
                 <Icon className="h-5 w-5" />
               </span>
               <div>
@@ -168,21 +170,21 @@ export default function HeroSection() {
         <div className="grid overflow-hidden rounded-3xl bg-coffee lg:grid-cols-[minmax(0,1fr)_auto]">
           <div className="grid gap-6 p-7 sm:grid-cols-3">
             <div className="flex items-center gap-3">
-              <ClockIcon className="h-6 w-6 shrink-0 text-terracotta-light" />
+              <ClockIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Aberto hoje</p>
                 <p className="text-xs text-cream/65">Seg a sex, 7h às 19h</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <MapPinIcon className="h-6 w-6 shrink-0 text-terracotta-light" />
+              <MapPinIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Onde estamos</p>
                 <p className="text-xs text-cream/65">Centro, São Pedro da Aldeia</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <StarIcon className="h-6 w-6 shrink-0 text-terracotta-light" />
+              <StarIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Siga a gente</p>
                 <div className="mt-1 flex gap-2">
@@ -213,7 +215,7 @@ export default function HeroSection() {
               contra ele — parecia que a barra escura acabava e sobrava texto
               solto no meio do nada. */}
           <div className="flex items-center gap-4 bg-white p-7 lg:rounded-l-3xl">
-            <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-terracotta/10 text-terracotta sm:flex">
+            <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-olive/10 text-olive sm:flex">
               <LeafIcon className="h-6 w-6" />
             </div>
             <div>
@@ -225,7 +227,7 @@ export default function HeroSection() {
               </p>
               <Link
                 href="/cardapio"
-                className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide text-terracotta hover:underline"
+                className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide text-olive hover:underline"
               >
                 Abrir cardápio →
               </Link>

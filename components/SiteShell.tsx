@@ -100,13 +100,13 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
                 onKeyDown={(e) => onKeyDown(e, index)}
                 className={`relative py-1 text-sm font-semibold uppercase tracking-wide transition ${
                   active === tab.id
-                    ? "text-terracotta"
+                    ? "text-olive"
                     : "text-coffee/70 hover:text-coffee"
                 }`}
               >
                 {tab.label}
                 {active === tab.id && (
-                  <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-terracotta" />
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-olive" />
                 )}
               </button>
             ))}
@@ -117,7 +117,7 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-full bg-terracotta px-6 py-3 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-terracotta-dark sm:inline-flex"
+              className="hidden items-center gap-2 rounded-full bg-olive px-6 py-3 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark sm:inline-flex"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Fale conosco
@@ -150,7 +150,7 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
                   aria-controls={`painel-${tab.id}`}
                   onClick={() => openTab(tab.id)}
                   className={`border-b border-coffee/5 py-3 text-left text-sm font-semibold uppercase tracking-wide transition ${
-                    active === tab.id ? "text-terracotta" : "text-coffee/70"
+                    active === tab.id ? "text-olive" : "text-coffee/70"
                   }`}
                 >
                   {tab.label}
@@ -160,7 +160,7 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-terracotta px-6 py-3 text-xs font-bold uppercase tracking-wide text-cream"
+                className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-olive px-6 py-3 text-xs font-bold uppercase tracking-wide text-cream"
               >
                 <WhatsAppIcon className="h-4 w-4" />
                 Fale conosco

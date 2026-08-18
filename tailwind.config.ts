@@ -13,17 +13,18 @@ const config: Config = {
           DEFAULT: "#2b1810",
           light: "#3d241a",
         },
+        // Cor de acento da marca. Os três tons do meio vieram do cliente e
+        // formam uma rampa da mesma cor — por isso substituíram o oliva
+        // esverdeado antigo (#6b7a4a) em vez de conviver com ele: dois verdes
+        // parecidos na mesma página leem como erro, não como paleta.
         olive: {
-          DEFAULT: "#6b7a4a",
-          light: "#8a9a63",
-          dark: "#556138",
-        },
-        // Acento quente do hero: puxa o âmbar do logotipo e é a cor que carrega
-        // a palavra destacada do título e os botões principais.
-        terracotta: {
-          DEFAULT: "#b5603a",
-          light: "#d08a5f",
-          dark: "#8f4a2c",
+          // Só para texto sobre o café escuro: o DEFAULT ali dá contraste 2.6:1
+          // e fica ilegível.
+          lightest: "#c6b98d",
+          light: "#8c7f4e",
+          DEFAULT: "#71663d",
+          dark: "#5d532d",
+          darkest: "#4e472b",
         },
         cream: {
           DEFAULT: "#f5ede1",
@@ -33,7 +34,9 @@ const config: Config = {
       fontFamily: {
         // Corpo de texto (padrão) — Poppins
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
-        // Títulos — Caviar Dreams (auto-hospedada, ver app/layout.tsx). Só 400 e 700.
+        // Título do hero — Montserrat Black (900), para o impacto do modelo
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        // Demais títulos — Caviar Dreams (auto-hospedada, ver app/layout.tsx). Só 400 e 700.
         title: ["var(--font-title)", "system-ui", "sans-serif"],
         // Subtítulos — Caveat
         script: ["var(--font-script)", "cursive"],
