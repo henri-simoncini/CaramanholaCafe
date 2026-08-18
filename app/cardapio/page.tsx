@@ -88,7 +88,7 @@ export default function CardapioPage() {
 
       <footer className="border-t border-coffee/10 bg-cream-dark py-8 text-center text-sm text-coffee/70">
         <p>{siteConfig.address}</p>
-        <p className="mt-1">Seg-Sex 7h-19h · Sáb 7h-14h · Dom fechado</p>
+        <p className="mt-1">{siteConfig.hoursShort} · Domingo fechado</p>
       </footer>
     </>
   );

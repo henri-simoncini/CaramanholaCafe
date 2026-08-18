@@ -9,21 +9,22 @@ export const siteConfig = {
   // Mesmo número, formatado para leitura humana.
   whatsappDisplay: "(22) 98827-2205",
   whatsappMessage: "Olá! Vim pelo site da Caramanhola e gostaria de mais informações.",
-  // O logradouro ("Rua das Flores, 123") ainda é placeholder — só a cidade está
-  // correta. Trocar pelo endereço real da loja.
-  address: "Rua das Flores, 123 — Centro, São Pedro da Aldeia/RJ",
-  cep: "28940-000",
+  address: "R. Silva Jardim, 1001 — Campo Redondo, São Pedro da Aldeia/RJ",
+  cep: "28942-206",
   // Query usada no embed e no link do mapa. Fica separada do texto exibido
-  // porque o CEP e o "Brasil" ajudam o Google a acertar a cidade — sem eles
-  // "Rua das Flores" cai em qualquer uma das centenas de ruas homônimas.
-  mapsQuery: "Centro, São Pedro da Aldeia - RJ, 28940-000, Brasil",
-  instagramUrl: "https://instagram.com/caramanhola",
-  facebookUrl: "https://facebook.com/caramanhola",
+  // porque o CEP e o "Brasil" ajudam o Google a cravar o ponto certo.
+  mapsQuery: "R. Silva Jardim, 1001, Campo Redondo, São Pedro da Aldeia - RJ, 28942-206, Brasil",
+  instagramHandle: "@caramanholacafe",
+  instagramUrl: "https://instagram.com/caramanholacafe",
+  facebookUrl: "https://facebook.com/caramanholacafe",
   hours: [
-    { days: "Segunda a sexta", time: "7h às 19h" },
-    { days: "Sábado", time: "7h às 14h" },
+    { days: "Segunda a sábado", time: "7h30 às 19h30" },
     { days: "Domingo", time: "Fechado" },
   ],
+  // Versão curta para a barra do hero e o rodapé do cardápio, que não têm
+  // espaço para a tabela inteira. Fica aqui para não repetir o horário
+  // solto em três arquivos e ele acabar divergindo.
+  hoursShort: "Seg a sáb, 7h30 às 19h30",
 };
 
 /** Link "Ver no Google Maps" (abre o app/site do Maps). */

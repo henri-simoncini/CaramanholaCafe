@@ -34,9 +34,7 @@ const config: Config = {
       fontFamily: {
         // Corpo de texto (padrão) — Poppins
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
-        // Título do hero — Montserrat Black (900), para o impacto do modelo
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
-        // Demais títulos — Caviar Dreams (auto-hospedada, ver app/layout.tsx). Só 400 e 700.
+        // Títulos — Montserrat: 900 no hero, 700 nos demais
         title: ["var(--font-title)", "system-ui", "sans-serif"],
         // Subtítulos — Caveat
         script: ["var(--font-script)", "cursive"],

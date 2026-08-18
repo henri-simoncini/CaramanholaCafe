@@ -52,9 +52,9 @@ export default function HeroSection() {
               Café · pão de queijo e mais
             </p>
 
-            {/* Montserrat Black (900) só aqui: é o peso que sustenta o tipo
-                gigante do modelo. Os demais títulos seguem na Caviar Dreams. */}
-            <h1 className="mt-5 font-display text-[3.5rem] font-black uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
+            {/* font-black (900) só aqui: é o peso que sustenta o tipo gigante.
+                Os demais títulos usam a mesma Montserrat em 700. */}
+            <h1 className="mt-5 font-title text-[3.5rem] font-black uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
               <span className="block">Pare.</span>
               <span className="block text-olive">Respire.</span>
               <span className="block">Repita.</span>
@@ -173,20 +173,24 @@ export default function HeroSection() {
               <ClockIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Aberto hoje</p>
-                <p className="text-xs text-cream/65">Seg a sex, 7h às 19h</p>
+                <p className="text-xs text-cream/65">{siteConfig.hoursShort}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <MapPinIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Onde estamos</p>
-                <p className="text-xs text-cream/65">Centro, São Pedro da Aldeia</p>
+                <p className="text-xs text-cream/65">Campo Redondo, São Pedro da Aldeia</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <StarIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Siga a gente</p>
+                {/* O @ visível importa: é por ele que as pessoas procuram a
+                    loja na busca do Instagram, não pelo ícone */}
+                <p className="text-[11px] font-bold uppercase tracking-wide text-cream">
+                  {siteConfig.instagramHandle}
+                </p>
                 <div className="mt-1 flex gap-2">
                   <a
                     href={siteConfig.instagramUrl}

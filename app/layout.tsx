@@ -1,38 +1,18 @@
 import type { Metadata } from "next";
 import { Caveat, Montserrat, Poppins } from "next/font/google";
-import localFont from "next/font/local";
 import "./globals.css";
 
 /**
- * TÍTULOS — Caviar Dreams
+ * TÍTULOS — Montserrat
  *
- * Auto-hospedada: a fonte não existe no Google Fonts. Os .woff2 em app/fonts/
- * foram convertidos dos .ttf originais (62% menores) e são servidos pelo
- * próprio domínio, sem requisição externa.
- *
- * Só existem os pesos 400 e 700 — a família não tem intermediários, então
- * evite font-semibold (600) em títulos: o navegador simularia o peso e o
- * traço sairia deformado.
+ * Uma única família para todos os títulos: 900 no hero, 700 nos demais. A
+ * Caviar Dreams foi removida daqui (e os .woff2 de app/fonts/ junto), o que
+ * de quebra encerra a dúvida de licença comercial que ela carregava.
  */
-const title = localFont({
-  src: [
-    { path: "./fonts/CaviarDreams-Regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/CaviarDreams-Bold.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-title",
-  display: "swap",
-});
-
-/**
- * TÍTULO DO HERO — Montserrat Black
- *
- * Só o peso 900. A Caviar Dreams continua nos demais títulos: ela é leve e
- * aberta demais para o tipo gigante do hero, onde o modelo pede peso.
- */
-const display = Montserrat({
+const title = Montserrat({
   subsets: ["latin"],
-  weight: ["900"],
-  variable: "--font-display",
+  weight: ["700", "900"],
+  variable: "--font-title",
   display: "swap",
 });
 
@@ -66,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${display.variable} ${title.variable} ${script.variable} ${body.variable}`}
+      className={`${title.variable} ${script.variable} ${body.variable}`}
     >
       <body className="font-sans bg-cream text-coffee antialiased">{children}</body>
     </html>
