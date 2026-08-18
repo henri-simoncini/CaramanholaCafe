@@ -2,9 +2,16 @@
 
 import { useMemo, useState } from "react";
 import { categories, highlightedItems, menuItems } from "@/data/menu";
+import CategoryTabs, { type CategoryTab } from "./CategoryTabs";
 import ProductCard from "./ProductCard";
 
 const ALL = "todos" as const;
+
+// "Todos" na frente das categorias reais, na ordem em que aparecem na barra
+const abas: CategoryTab[] = [
+  { id: ALL, label: "Todos" },
+  ...categories.map((c) => ({ id: c.id, label: c.label })),
+];
 
 export default function MenuBrowser({
   highlightOnly = false,
@@ -31,31 +38,11 @@ export default function MenuBrowser({
   return (
     <div>
       <div
-        className={`-mx-5 flex gap-2 overflow-x-auto px-5 pb-3 ${
-          sticky ? "sticky top-[64px] z-30 bg-cream/95 py-3 backdrop-blur" : ""
-        }`}
+        className={
+          sticky ? "sticky top-[68px] z-30 -mx-5 bg-cream/95 px-5 py-3 backdrop-blur" : "pb-1"
+        }
       >
-        <button
-          type="button"
-          onClick={() => setActive(ALL)}
-          className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition ${
-            active === ALL ? "bg-coffee text-cream" : "bg-white text-coffee/70 ring-1 ring-coffee/10"
-          }`}
-        >
-          Todos
-        </button>
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            type="button"
-            onClick={() => setActive(cat.id)}
-            className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition ${
-              active === cat.id ? "bg-coffee text-cream" : "bg-white text-coffee/70 ring-1 ring-coffee/10"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+        <CategoryTabs tabs={abas} active={active} onChange={setActive} />
       </div>
 
       {/* 2 colunas já no mobile: segue o design e evita que o cardápio completo
