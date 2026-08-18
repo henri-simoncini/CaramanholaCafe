@@ -18,6 +18,13 @@ const config: Config = {
           light: "#8a9a63",
           dark: "#556138",
         },
+        // Acento quente do hero: puxa o âmbar do logotipo e é a cor que carrega
+        // a palavra destacada do título e os botões principais.
+        terracotta: {
+          DEFAULT: "#b5603a",
+          light: "#d08a5f",
+          dark: "#8f4a2c",
+        },
         cream: {
           DEFAULT: "#f5ede1",
           dark: "#ece0cf",
