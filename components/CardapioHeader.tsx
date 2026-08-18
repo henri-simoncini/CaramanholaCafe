@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { CloseIcon, MenuIcon, WhatsAppIcon } from "./icons";
+import MenuToggleButton from "./MenuToggleButton";
+import { WhatsAppIcon } from "./icons";
 import { whatsappLink } from "@/data/site";
 
 export default function CardapioHeader() {
@@ -23,17 +24,16 @@ export default function CardapioHeader() {
           />
         </Link>
 
-        <button
-          type="button"
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
-        </button>
+        <MenuToggleButton
+          open={open}
+          onToggle={() => setOpen((v) => !v)}
+          controls="menu-cardapio"
+          className="text-cream hover:bg-cream/10"
+        />
       </div>
 
       {open && (
-        <div className="border-t border-cream/10 bg-coffee px-5 pb-5">
+        <div id="menu-cardapio" className="border-t border-cream/10 bg-coffee px-5 pb-5">
           <nav className="flex flex-col gap-3 pt-4 text-sm font-medium">
             <Link href="/" onClick={() => setOpen(false)} className="text-cream/90 hover:text-olive-light">
               Início

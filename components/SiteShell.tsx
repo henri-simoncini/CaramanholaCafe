@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import { CloseIcon, MenuIcon, WhatsAppIcon } from "./icons";
+import MenuToggleButton from "./MenuToggleButton";
+import { WhatsAppIcon } from "./icons";
 import { whatsappLink } from "@/data/site";
 
 export type TabId = "inicio" | "sobre" | "cardapio" | "contato";
@@ -122,20 +123,18 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
               <WhatsAppIcon className="h-4 w-4" />
               Fale conosco
             </a>
-            <button
-              type="button"
-              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-              aria-expanded={menuOpen}
-              className="p-1 text-coffee md:hidden"
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              {menuOpen ? <CloseIcon className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
-            </button>
+            <MenuToggleButton
+              open={menuOpen}
+              onToggle={() => setMenuOpen((v) => !v)}
+              controls="menu-mobile"
+              className="text-coffee hover:bg-coffee/5 md:hidden"
+            />
           </div>
         </div>
 
         {menuOpen && (
           <nav
+            id="menu-mobile"
             role="tablist"
             aria-label="Seções do site"
             className="border-t border-coffee/10 bg-cream px-5 pb-5 md:hidden"
