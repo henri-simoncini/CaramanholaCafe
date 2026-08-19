@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import MenuToggleButton from "./MenuToggleButton";
+import { useSlidingIndicator } from "./useSlidingIndicator";
 import { WhatsAppIcon } from "./icons";
 import { whatsappLink } from "@/data/site";
 
@@ -24,6 +25,7 @@ function isTabId(value: string, tabs: Tab[]): value is TabId {
 export default function SiteShell({ tabs }: { tabs: Tab[] }) {
   const [active, setActive] = useState<TabId>(DEFAULT_TAB);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { trilhoRef, registrar, medida, animar } = useSlidingIndicator(active);
 
   // O hash da URL manda: assim /#cardapio abre direto na aba certa, o link
   // continua compartilhável e o botão voltar do navegador funciona.
@@ -83,15 +85,19 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
             </span>
           </button>
 
+          {/* relative: o offsetLeft dos botões é medido a partir daqui, e é
+              onde a linha que desliza fica ancorada */}
           <nav
+            ref={trilhoRef as React.RefObject<HTMLElement>}
             role="tablist"
             aria-label="Seções do site"
-            className="hidden items-center gap-7 md:flex"
+            className="relative hidden items-center gap-7 md:flex"
           >
             {tabs.map((tab, index) => (
               <button
                 key={tab.id}
                 id={`tab-${tab.id}`}
+                ref={registrar(tab.id)}
                 role="tab"
                 type="button"
                 aria-selected={active === tab.id}
@@ -99,18 +105,27 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
                 tabIndex={active === tab.id ? 0 : -1}
                 onClick={() => openTab(tab.id)}
                 onKeyDown={(e) => onKeyDown(e, index)}
-                className={`relative py-1 text-sm font-semibold uppercase tracking-wide transition ${
-                  active === tab.id
-                    ? "text-olive"
-                    : "text-coffee/70 hover:text-coffee"
+                className={`py-1 text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ${
+                  active === tab.id ? "text-olive" : "text-coffee/70 hover:text-coffee"
                 }`}
               >
                 {tab.label}
-                {active === tab.id && (
-                  <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-olive" />
-                )}
               </button>
             ))}
+
+            {/* Uma linha só, que escorrega entre os itens — em vez de uma por
+                botão aparecendo e sumindo */}
+            <span
+              aria-hidden="true"
+              className={`absolute -bottom-1 h-0.5 rounded-full bg-olive ${
+                animar ? "transition-[left,width] duration-300 ease-out" : ""
+              }`}
+              style={{
+                left: medida ? `${medida.left}px` : 0,
+                width: medida ? `${medida.width}px` : 0,
+                opacity: medida ? 1 : 0,
+              }}
+            />
           </nav>
 
           <div className="flex items-center gap-2">
