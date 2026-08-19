@@ -1,6 +1,7 @@
 "use client";
 
 import type { ComponentType } from "react";
+import { useSlidingIndicator } from "./useSlidingIndicator";
 import { CardapioNavIcon, HomeNavIcon, InfoNavIcon, PhoneNavIcon } from "./nav-icons";
 
 type IconeNav = ComponentType<{ filled?: boolean; className?: string }>;
@@ -12,11 +13,15 @@ const icones: Record<string, IconeNav> = {
   contato: PhoneNavIcon,
 };
 
+// Folga lateral da pílula. Sem ela, como os itens são flex-1 e preenchem a
+// largura toda, a pílula encostaria na vizinha e o conjunto viraria um bloco.
+const FOLGA = 10;
+
 /**
  * Barra de navegação colada no rodapé, ocupando a largura toda. Só no mobile.
  *
- * Substitui o menu sanfona: com quatro seções, deixar tudo à mão custa um
- * toque em vez de dois, e o polegar alcança sem esticar.
+ * A pílula desliza até o item ativo, o mesmo movimento do header no desktop e
+ * da barra de categorias — pelo useSlidingIndicator, compartilhado com eles.
  */
 export default function BottomNav({
   tabs,
@@ -27,6 +32,8 @@ export default function BottomNav({
   active: string;
   onSelect: (id: string) => void;
 }) {
+  const { trilhoRef, registrar, medida, animar } = useSlidingIndicator(active);
+
   return (
     <nav
       role="tablist"
@@ -36,7 +43,20 @@ export default function BottomNav({
       // de aparecer uma tira do conteúdo por baixo.
       className="fixed inset-x-0 bottom-0 z-50 border-t border-cream/10 bg-coffee-bar pb-[env(safe-area-inset-bottom)] md:hidden"
     >
-      <div className="flex w-full">
+      <div ref={trilhoRef as React.RefObject<HTMLDivElement>} className="relative flex w-full">
+        <span
+          aria-hidden="true"
+          className={`absolute top-1/2 -translate-y-1/2 rounded-2xl bg-cream/15 ${
+            animar ? "transition-[left,width] duration-300 ease-out" : ""
+          }`}
+          style={{
+            left: medida ? `${medida.left + FOLGA}px` : 0,
+            width: medida ? `${Math.max(0, medida.width - FOLGA * 2)}px` : 0,
+            height: "calc(100% - 0.5rem)",
+            opacity: medida ? 1 : 0,
+          }}
+        />
+
         {tabs.map((tab) => {
           const Icone = icones[tab.id];
           const ativo = tab.id === active;
@@ -44,26 +64,17 @@ export default function BottomNav({
           return (
             <button
               key={tab.id}
+              ref={registrar(tab.id)}
               type="button"
               role="tab"
               aria-selected={ativo}
               aria-controls={`painel-${tab.id}`}
               onClick={() => onSelect(tab.id)}
-              className={`flex flex-1 flex-col items-center gap-1 pb-2 pt-2.5 transition-colors duration-200 ${
+              className={`relative z-10 flex flex-1 flex-col items-center gap-1 pb-2 pt-2.5 transition-colors duration-200 ${
                 ativo ? "text-cream" : "text-cream/55"
               }`}
             >
-              <span className="relative flex h-9 w-9 items-center justify-center">
-                {/* Círculo que cresce de zero até preencher, como no exemplo do
-                    Uiverse. Fica atrás do ícone e some encolhendo ao sair. */}
-                <span
-                  aria-hidden="true"
-                  className={`absolute rounded-full bg-cream/15 transition-all duration-500 ease-out ${
-                    ativo ? "h-9 w-9" : "h-0 w-0"
-                  }`}
-                />
-                <Icone filled={ativo} className="relative h-[22px] w-[22px]" />
-              </span>
+              <Icone filled={ativo} className="h-[22px] w-[22px]" />
               <span className="text-[10px] font-medium leading-none tracking-wide">
                 {tab.label}
               </span>
