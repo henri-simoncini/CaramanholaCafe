@@ -253,6 +253,9 @@ export default function HomePage() {
     <>
       <SiteShell tabs={tabs} />
       <SiteFooter />
+      {/* Folga para a barra fixa do mobile não cobrir o fim do rodapé. Fica
+          aqui, e não dentro do SiteShell, porque o rodapé é irmão dele. */}
+      <div aria-hidden="true" className="h-24 bg-coffee md:hidden" />
     </>
   );
 }

@@ -12,6 +12,9 @@ const config: Config = {
         coffee: {
           DEFAULT: "#2b1810",
           light: "#3d241a",
+          // Barra de navegação inferior do mobile: mais clara que o café do
+          // texto, para a barra se destacar do rodapé em vez de fundir com ele.
+          bar: "#4d2d18",
         },
         // Cor de acento da marca. Os três tons do meio vieram do cliente e
         // formam uma rampa da mesma cor — por isso substituíram o oliva

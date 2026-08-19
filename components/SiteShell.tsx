@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import MenuToggleButton from "./MenuToggleButton";
+import BottomNav from "./BottomNav";
 import { useSlidingIndicator } from "./useSlidingIndicator";
 import { WhatsAppIcon } from "./icons";
 import { whatsappLink } from "@/data/site";
@@ -24,7 +24,6 @@ function isTabId(value: string, tabs: Tab[]): value is TabId {
 
 export default function SiteShell({ tabs }: { tabs: Tab[] }) {
   const [active, setActive] = useState<TabId>(DEFAULT_TAB);
-  const [menuOpen, setMenuOpen] = useState(false);
   const { trilhoRef, registrar, medida, animar } = useSlidingIndicator(active);
 
   // O hash da URL manda: assim /#cardapio abre direto na aba certa, o link
@@ -40,7 +39,6 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
   }, [tabs]);
 
   const openTab = useCallback((id: TabId) => {
-    setMenuOpen(false);
     // Empurra o hash em vez de trocar o estado direto: o hashchange acima faz a
     // troca, então clique e botão voltar seguem exatamente o mesmo caminho.
     window.location.hash = id;
@@ -128,60 +126,18 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
             />
           </nav>
 
-          <div className="flex items-center gap-2">
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-full bg-olive px-6 py-3 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark sm:inline-flex"
-            >
-              <WhatsAppIcon className="h-4 w-4" />
-              Fale conosco
-            </a>
-            <MenuToggleButton
-              open={menuOpen}
-              onToggle={() => setMenuOpen((v) => !v)}
-              controls="menu-mobile"
-              className="text-coffee hover:bg-coffee/5 md:hidden"
-            />
-          </div>
-        </div>
-
-        {menuOpen && (
-          <nav
-            id="menu-mobile"
-            role="tablist"
-            aria-label="Seções do site"
-            className="border-t border-coffee/10 bg-cream px-5 pb-5 md:hidden"
+          {/* Sem o sanfona no mobile, o WhatsApp cabe no header desde a menor
+              tela — antes ele só aparecia a partir de sm */}
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-olive px-4 py-2.5 text-[11px] font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark sm:px-6 sm:py-3 sm:text-xs"
           >
-            <div className="flex flex-col pt-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  role="tab"
-                  type="button"
-                  aria-selected={active === tab.id}
-                  aria-controls={`painel-${tab.id}`}
-                  onClick={() => openTab(tab.id)}
-                  className={`border-b border-coffee/5 py-3 text-left text-sm font-semibold uppercase tracking-wide transition ${
-                    active === tab.id ? "text-olive" : "text-coffee/70"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-olive px-6 py-3 text-xs font-bold uppercase tracking-wide text-cream"
-              >
-                <WhatsAppIcon className="h-4 w-4" />
-                Fale conosco
-              </a>
-            </div>
-          </nav>
-        )}
+            <WhatsAppIcon className="h-4 w-4" />
+            Fale conosco
+          </a>
+        </div>
       </header>
 
       <main>
@@ -200,6 +156,8 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
           </div>
         ))}
       </main>
+
+      <BottomNav tabs={tabs} active={active} onSelect={(id) => openTab(id as TabId)} />
     </>
   );
 }
