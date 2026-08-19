@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "./Reveal";
 import { TabLink } from "./SiteShell";
 import {
   ClockIcon,
@@ -44,28 +45,33 @@ export default function HeroSection() {
               esticava a coluna para ~634px numa tela de 375px, e o
               overflow-hidden da seção só escondia o estrago. */}
           <div className="min-w-0">
-            <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-olive">
-              <span aria-hidden="true" className="inline-flex gap-1">
-                <span className="h-2 w-2 rounded-full bg-olive" />
-                <span className="h-2 w-2 rounded-full bg-olive/40" />
-              </span>
-              Café · pão de queijo e mais
-            </p>
+            {/* O título sai primeiro; o resto vem em escada atrás dele */}
+            <Reveal>
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-olive">
+                <span aria-hidden="true" className="inline-flex gap-1">
+                  <span className="h-2 w-2 rounded-full bg-olive" />
+                  <span className="h-2 w-2 rounded-full bg-olive/40" />
+                </span>
+                Café · pão de queijo e mais
+              </p>
 
-            {/* font-black (900) só aqui: é o peso que sustenta o tipo gigante.
-                Os demais títulos usam a mesma Montserrat em 700. */}
-            <h1 className="mt-5 font-title text-[3.5rem] font-black uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
-              <span className="block">Pare.</span>
-              <span className="block text-olive">Respire.</span>
-              <span className="block">Repita.</span>
-            </h1>
+              {/* font-black (900) só aqui: é o peso que sustenta o tipo gigante.
+                  Os demais títulos usam a mesma Montserrat em 700. */}
+              <h1 className="mt-5 font-title text-[3.5rem] font-black uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
+                <span className="block">Pare.</span>
+                <span className="block text-olive">Respire.</span>
+                <span className="block">Repita.</span>
+              </h1>
+            </Reveal>
 
-            <p className="mt-6 max-w-md text-base leading-relaxed text-coffee/75">
-              Café fresco, pão de queijo quentinho e lanches feitos na hora — numa
-              parada tranquila no Centro de São Pedro da Aldeia.
-            </p>
+            <Reveal delay={140}>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-coffee/75">
+                Café fresco, pão de queijo quentinho e lanches feitos na hora — numa
+                parada tranquila no Centro de São Pedro da Aldeia.
+              </p>
+            </Reveal>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <Reveal delay={260} className="mt-8 flex flex-wrap gap-3">
               <TabLink
                 to="cardapio"
                 className="rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
@@ -81,11 +87,11 @@ export default function HeroSection() {
                 <WhatsAppIcon className="h-4 w-4" />
                 Fale conosco
               </a>
-            </div>
+            </Reveal>
           </div>
 
           {/* Coluna da foto com o card de mais pedidos sobreposto */}
-          <div className="relative min-w-0">
+          <Reveal delay={380} className="relative min-w-0">
             {/* Formas decorativas atrás da foto, como no modelo */}
             <div
               aria-hidden="true"
@@ -146,13 +152,13 @@ export default function HeroSection() {
                 ))}
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
 
-        {/* Diferenciais */}
+        {/* Diferenciais — cada um entra logo depois do anterior */}
         <div className="mt-16 grid gap-8 border-t border-coffee/10 pt-10 sm:grid-cols-3 lg:mt-24">
-          {perks.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="flex gap-3">
+          {perks.map(({ icon: Icon, title, text }, i) => (
+            <Reveal key={title} delay={i * 120} className="flex gap-3">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-olive/30 text-olive">
                 <Icon className="h-5 w-5" />
               </span>
@@ -160,14 +166,14 @@ export default function HeroSection() {
                 <p className="text-xs font-bold uppercase tracking-wide text-coffee">{title}</p>
                 <p className="mt-1 text-sm leading-relaxed text-coffee/65">{text}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
 
       {/* Barra escura de informações */}
       <div className="mx-auto max-w-7xl px-5 pb-16">
-        <div className="grid overflow-hidden rounded-3xl bg-coffee lg:grid-cols-[minmax(0,1fr)_auto]">
+        <Reveal className="grid overflow-hidden rounded-3xl bg-coffee lg:grid-cols-[minmax(0,1fr)_auto]">
           <div className="grid gap-6 p-7 sm:grid-cols-3">
             <div className="flex items-center gap-3">
               <ClockIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
@@ -237,7 +243,7 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

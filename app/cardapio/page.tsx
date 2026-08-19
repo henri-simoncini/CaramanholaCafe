@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CardapioHeader from "@/components/CardapioHeader";
 import MenuBrowser from "@/components/MenuBrowser";
+import Reveal from "@/components/Reveal";
 import { siteConfig } from "@/data/site";
 import { featuredItem, formatPrice, mostOrdered } from "@/data/menu";
 
@@ -17,15 +18,19 @@ export default function CardapioPage() {
 
       <main className="mx-auto max-w-3xl px-5 pb-16">
         <div className="pt-8 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Cardápio</p>
-          <h1 className="mt-2 font-title text-3xl font-bold text-coffee">Sabor em cada detalhe</h1>
-          <p className="mt-1 font-script text-2xl text-olive-dark">
-            Cafés especiais, lanches artesanais e doces que acolhem.
-          </p>
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Cardápio</p>
+            <h1 className="mt-2 font-title text-3xl font-bold text-coffee">Sabor em cada detalhe</h1>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-1 font-script text-2xl text-olive-dark">
+              Cafés especiais, lanches artesanais e doces que acolhem.
+            </p>
+          </Reveal>
         </div>
 
         {/* Produto em destaque */}
-        <section className="mt-8 overflow-hidden rounded-3xl bg-coffee text-cream shadow-lg">
+        <Reveal delay={260} className="mt-8 overflow-hidden rounded-3xl bg-coffee text-cream shadow-lg">
           <div className="relative h-48 w-full">
             {/* Imagem placeholder do Unsplash — trocar pela foto real do produto em destaque */}
             <Image
@@ -48,15 +53,18 @@ export default function CardapioPage() {
             </div>
             <p className="mt-2 text-sm text-cream/80">{featuredItem.description}</p>
           </div>
-        </section>
+        </Reveal>
 
         {/* Mais pedidos */}
         <section className="mt-10">
-          <h2 className="font-title text-xl font-bold text-coffee">Mais pedidos</h2>
+          <Reveal>
+            <h2 className="font-title text-xl font-bold text-coffee">Mais pedidos</h2>
+          </Reveal>
           <ol className="mt-4 space-y-3">
             {mostOrdered.map((item, index) => (
-              <li
+              <Reveal
                 key={item.id}
+                delay={120 + index * 90}
                 className="flex items-center gap-4 rounded-2xl bg-white p-3 shadow-sm ring-1 ring-coffee/5"
               >
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-olive/10 font-sans text-sm font-bold text-olive-dark">
@@ -72,17 +80,19 @@ export default function CardapioPage() {
                 <span className="shrink-0 font-sans text-sm font-semibold text-olive-dark">
                   {formatPrice(item.price)}
                 </span>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </section>
 
         {/* Cardápio completo */}
         <section className="mt-10">
-          <h2 className="font-title text-xl font-bold text-coffee">Cardápio completo</h2>
-          <div className="mt-4">
+          <Reveal>
+            <h2 className="font-title text-xl font-bold text-coffee">Cardápio completo</h2>
+          </Reveal>
+          <Reveal delay={140} className="mt-4">
             <MenuBrowser sticky maxColumns={3} />
-          </div>
+          </Reveal>
         </section>
       </main>
 

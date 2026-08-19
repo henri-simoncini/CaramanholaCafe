@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import MenuBrowser from "@/components/MenuBrowser";
+import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteShell, { type Tab } from "@/components/SiteShell";
 import {
@@ -45,19 +46,24 @@ function SobreSection() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Sobre a loja</p>
-            <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
-              Muito mais que café e lanches
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-coffee/75">
-              Nascemos do desejo de criar um lugar onde cada xícara de café e cada lanche contam uma
-              história. Na Caramanhola, unimos receitas afetivas, ingredientes selecionados e um ambiente
-              pensado para acolher — porque acreditamos que os melhores momentos merecem o melhor sabor.
-            </p>
+            <Reveal>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Sobre a loja</p>
+              <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
+                Muito mais que café e lanches
+              </h2>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <p className="mt-4 text-base leading-relaxed text-coffee/75">
+                Nascemos do desejo de criar um lugar onde cada xícara de café e cada lanche contam uma
+                história. Na Caramanhola, unimos receitas afetivas, ingredientes selecionados e um ambiente
+                pensado para acolher — porque acreditamos que os melhores momentos merecem o melhor sabor.
+              </p>
+            </Reveal>
 
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {differentiators.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="flex gap-3">
+              {differentiators.map(({ icon: Icon, title, text }, i) => (
+                <Reveal key={title} delay={260 + i * 100} className="flex gap-3">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-olive/10 text-olive">
                     <Icon className="h-5 w-5" />
                   </span>
@@ -65,12 +71,12 @@ function SobreSection() {
                     <p className="text-sm font-bold uppercase tracking-wide text-coffee">{title}</p>
                     <p className="mt-1 text-sm text-coffee/70">{text}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
 
-          <div>
+          <Reveal delay={200}>
             <div className="relative h-80 w-full overflow-hidden rounded-t-3xl shadow-lg sm:h-[28rem]">
               {/* Imagem placeholder da fachada — trocar pela foto real da loja */}
               <Image
@@ -105,7 +111,7 @@ function SobreSection() {
               </div>
               <span className="text-xs text-cream/75">e muito mais</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -117,30 +123,34 @@ function CardapioSection() {
     <section className="bg-cream-dark py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Cardápio</p>
-          <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
-            Sabores para todos os momentos
-          </h2>
-          <p className="mt-3 font-script text-2xl text-olive-dark sm:text-3xl">
-            Do cafezinho da manhã ao lanche da tarde, prepare-se para se apaixonar por cada item.
-          </p>
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Cardápio</p>
+            <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
+              Sabores para todos os momentos
+            </h2>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-3 font-script text-2xl text-olive-dark sm:text-3xl">
+              Do cafezinho da manhã ao lanche da tarde, prepare-se para se apaixonar por cada item.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="mt-10">
+        <Reveal delay={260} className="mt-10">
           <MenuBrowser highlightOnly />
-        </div>
+        </Reveal>
 
-        <div className="mt-10 text-center">
+        <Reveal delay={360} className="mt-10 text-center">
           <Link
             href="/cardapio"
             className="inline-flex rounded-full bg-coffee px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-coffee-light"
           >
             Ver mais itens
           </Link>
-        </div>
+        </Reveal>
 
         {/* Banner QR code */}
-        <div className="mt-16 flex flex-col items-center gap-6 rounded-3xl bg-coffee px-6 py-10 text-center text-cream sm:flex-row sm:justify-between sm:text-left">
+        <Reveal className="mt-16 flex flex-col items-center gap-6 rounded-3xl bg-coffee px-6 py-10 text-center text-cream sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h3 className="font-title text-2xl font-bold uppercase">
               Veja o cardápio completo na mesa!
@@ -174,7 +184,7 @@ function CardapioSection() {
               <rect x="85" y="85" width="8" height="8" fill="currentColor" />
             </svg>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -186,46 +196,52 @@ function ContatoSection() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Contato</p>
-            <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
-              Fale com a gente
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-coffee/75">
-              Dúvidas, encomendas ou sugestões? Nossa equipe está pronta para te atender pelo WhatsApp.
-            </p>
-            <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              Conversar no WhatsApp
-            </a>
-
-            {/* Número visível: quem quer salvar o contato ou ligar não
-                consegue fazer isso a partir de um botão só */}
-            <p className="mt-4 text-sm text-coffee/75">
-              Ou ligue para{" "}
+            <Reveal>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Contato</p>
+              <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
+                Fale com a gente
+              </h2>
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="mt-4 text-base leading-relaxed text-coffee/75">
+                Dúvidas, encomendas ou sugestões? Nossa equipe está pronta para te atender pelo WhatsApp.
+              </p>
+            </Reveal>
+            <Reveal delay={260}>
               <a
-                href={`tel:+${siteConfig.whatsappNumber}`}
-                className="font-semibold text-olive underline-offset-2 hover:underline"
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
               >
-                {siteConfig.whatsappDisplay}
+                <WhatsAppIcon className="h-5 w-5" />
+                Conversar no WhatsApp
               </a>
-            </p>
 
-            <div className="mt-8 flex items-start gap-2 text-sm text-coffee/75">
-              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-olive" />
-              <span>
-                {siteConfig.address}
-                <br />
-                CEP {siteConfig.cep}
-              </span>
-            </div>
+              {/* Número visível: quem quer salvar o contato ou ligar não
+                  consegue fazer isso a partir de um botão só */}
+              <p className="mt-4 text-sm text-coffee/75">
+                Ou ligue para{" "}
+                <a
+                  href={`tel:+${siteConfig.whatsappNumber}`}
+                  className="font-semibold text-olive underline-offset-2 hover:underline"
+                >
+                  {siteConfig.whatsappDisplay}
+                </a>
+              </p>
+
+              <div className="mt-8 flex items-start gap-2 text-sm text-coffee/75">
+                <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-olive" />
+                <span>
+                  {siteConfig.address}
+                  <br />
+                  CEP {siteConfig.cep}
+                </span>
+              </div>
+            </Reveal>
           </div>
 
-          <div className="h-80 overflow-hidden rounded-3xl shadow-lg lg:h-full lg:min-h-[24rem]">
+          <Reveal delay={200} className="h-80 overflow-hidden rounded-3xl shadow-lg lg:h-full lg:min-h-[24rem]">
             {/* Google Maps sem necessidade de chave de API */}
             <iframe
               title="Localização da Caramanhola no Google Maps"
@@ -234,7 +250,7 @@ function ContatoSection() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
