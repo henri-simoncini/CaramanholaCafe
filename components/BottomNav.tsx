@@ -1,16 +1,20 @@
 "use client";
 
-import type { ComponentType } from "react";
+import Image from "next/image";
 import { useSlidingIndicator } from "./useSlidingIndicator";
-import { CardapioNavIcon, HomeNavIcon, InfoNavIcon, PhoneNavIcon } from "./nav-icons";
 
-type IconeNav = ComponentType<{ filled?: boolean; className?: string }>;
-
-const icones: Record<string, IconeNav> = {
-  inicio: HomeNavIcon,
-  sobre: InfoNavIcon,
-  cardapio: CardapioNavIcon,
-  contato: PhoneNavIcon,
+/**
+ * Ícones enviados pelo cliente, em PNG, servidos como estão.
+ *
+ * Não mudam entre ativo e inativo — quem indica a seção é a pílula que desliza
+ * atrás e o peso do rótulo. Por isso também não passam por currentColor: a cor
+ * é a do arquivo.
+ */
+const icones: Record<string, string> = {
+  inicio: "/icones/inicio.png",
+  sobre: "/icones/sobre.png",
+  cardapio: "/icones/cardapio.png",
+  contato: "/icones/contato.png",
 };
 
 // Folga lateral da pílula. Sem ela, como os itens são flex-1 e preenchem a
@@ -58,9 +62,9 @@ export default function BottomNav({
         />
 
         {tabs.map((tab) => {
-          const Icone = icones[tab.id];
+          const src = icones[tab.id];
           const ativo = tab.id === active;
-          if (!Icone) return null;
+          if (!src) return null;
           return (
             <button
               key={tab.id}
@@ -71,10 +75,19 @@ export default function BottomNav({
               aria-controls={`painel-${tab.id}`}
               onClick={() => onSelect(tab.id)}
               className={`relative z-10 flex flex-1 flex-col items-center gap-1 pb-2 pt-2.5 transition-colors duration-200 ${
-                ativo ? "text-cream" : "text-cream/55"
+                ativo ? "text-cream" : "text-cream/60"
               }`}
             >
-              <Icone filled={ativo} className="h-[22px] w-[22px]" />
+              {/* alt vazio: o rótulo logo abaixo já nomeia o item, e repetir
+                  faria o leitor de tela anunciar a seção duas vezes */}
+              <Image
+                src={src}
+                alt=""
+                width={100}
+                height={100}
+                className="h-[22px] w-[22px]"
+                unoptimized
+              />
               <span className="text-[10px] font-medium leading-none tracking-wide">
                 {tab.label}
               </span>
