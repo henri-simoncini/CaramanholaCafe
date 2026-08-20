@@ -115,7 +115,7 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
                 botão aparecendo e sumindo */}
             <span
               aria-hidden="true"
-              className={`absolute -bottom-1 h-0.5 rounded-full bg-brand ${
+              className={`absolute -bottom-1 h-0.5 rounded-full bg-brand-dark ${
                 animar ? "transition-[left,width] duration-300 ease-out" : ""
               }`}
               style={{
@@ -132,7 +132,7 @@ export default function SiteShell({ tabs }: { tabs: Tab[] }) {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-4 py-2.5 text-[11px] font-bold uppercase tracking-wide text-coffee transition hover:bg-brand-light sm:px-6 sm:py-3 sm:text-xs"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand-dark px-4 py-2.5 text-[11px] font-bold uppercase tracking-wide text-white transition hover:bg-brand-darkest sm:px-6 sm:py-3 sm:text-xs"
           >
             <WhatsAppIcon className="h-4 w-4" />
             Fale conosco

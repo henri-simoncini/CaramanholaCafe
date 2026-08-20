@@ -30,7 +30,8 @@ const config: Config = {
           lightest: "#dbb994", // 9.2:1 sobre o café — texto em fundo escuro
           light: "#c9a175", // 7.1:1 sobre o café
           DEFAULT: "#b28151", // fundos, decoração e o título do hero
-          dark: "#7f5430", // 5.6:1 sobre o creme — texto pequeno em fundo claro
+          dark: "#7f5430", // 5.6:1 sobre o creme; fundo dos botões, branco dá 6.5:1
+          darkest: "#6b4628", // hover dos botões — escurece, branco sobe para 8.3:1
         },
         cream: {
           DEFAULT: "#f5ede1",

@@ -40,7 +40,7 @@ export default function CardapioPage() {
               sizes="(max-width: 768px) 100vw, 700px"
               className="object-cover"
             />
-            <div className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-xs font-semibold uppercase tracking-wide">
+            <div className="absolute left-4 top-4 rounded-full bg-brand-dark px-3 py-1 text-xs font-semibold text-white uppercase tracking-wide">
               Destaque
             </div>
           </div>

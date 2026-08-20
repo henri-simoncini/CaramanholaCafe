@@ -48,7 +48,7 @@ export default function CardapioHeader() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-coffee"
+              className="mt-1 inline-flex items-center gap-2 rounded-full bg-brand-dark px-4 py-2 text-white"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Fale conosco

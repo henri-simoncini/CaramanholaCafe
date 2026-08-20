@@ -87,7 +87,7 @@ function SobreSection() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-3xl bg-brand px-6 py-4 text-coffee">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-3xl bg-brand-dark px-6 py-4 text-white">
               <span className="text-sm font-semibold">Redes sociais</span>
               <div className="flex items-center gap-3">
                 <a
@@ -95,7 +95,7 @@ function SobreSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram da Caramanhola"
-                  className="rounded-full bg-coffee/10 p-2 transition hover:bg-coffee/20"
+                  className="rounded-full bg-white/15 p-2 transition hover:bg-white/25"
                 >
                   <InstagramIcon className="h-4 w-4" />
                 </a>
@@ -104,12 +104,12 @@ function SobreSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook da Caramanhola"
-                  className="rounded-full bg-coffee/10 p-2 transition hover:bg-coffee/20"
+                  className="rounded-full bg-white/15 p-2 transition hover:bg-white/25"
                 >
                   <FacebookIcon className="h-4 w-4" />
                 </a>
               </div>
-              <span className="text-xs text-coffee/70">e muito mais</span>
+              <span className="text-xs text-white/85">e muito mais</span>
             </div>
           </Reveal>
         </div>
@@ -212,7 +212,7 @@ function ContatoSection() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-brand px-8 py-4 text-xs font-bold uppercase tracking-wide text-coffee transition hover:bg-brand-light"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-brand-dark px-8 py-4 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-brand-darkest"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 Conversar no WhatsApp

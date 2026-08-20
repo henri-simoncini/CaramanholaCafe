@@ -74,7 +74,7 @@ export default function HeroSection() {
             <Reveal delay={260} className="mt-8 flex flex-wrap gap-3">
               <TabLink
                 to="cardapio"
-                className="rounded-full bg-brand px-8 py-4 text-xs font-bold uppercase tracking-wide text-coffee transition hover:bg-brand-light"
+                className="rounded-full bg-brand-dark px-8 py-4 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-brand-darkest"
               >
                 Ver cardápio
               </TabLink>
