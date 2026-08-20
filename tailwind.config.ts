@@ -16,18 +16,21 @@ const config: Config = {
           // texto, para a barra se destacar do rodapé em vez de fundir com ele.
           bar: "#4d2d18",
         },
-        // Cor de acento da marca. Os três tons do meio vieram do cliente e
-        // formam uma rampa da mesma cor — por isso substituíram o oliva
-        // esverdeado antigo (#6b7a4a) em vez de conviver com ele: dois verdes
-        // parecidos na mesma página leem como erro, não como paleta.
-        olive: {
-          // Só para texto sobre o café escuro: o DEFAULT ali dá contraste 2.6:1
-          // e fica ilegível.
-          lightest: "#c6b98d",
-          light: "#8c7f4e",
-          DEFAULT: "#71663d",
-          dark: "#5d532d",
-          darkest: "#4e472b",
+        /**
+         * Cor de acento da marca. Chama-se "brand" e não pelo tom porque já
+         * mudou de oliva para caramelo uma vez; o nome sobrevive à próxima.
+         *
+         * O DEFAULT é o #B28151 escolhido pelo cliente. Ele rende bem como
+         * fundo, como preenchimento decorativo e no título gigante do hero,
+         * mas sobre o creme dá só 2.94:1 — reprova em AA até para texto
+         * grande. Por isso texto pequeno em fundo claro usa `dark`, e texto
+         * sobre o café escuro usa `light` ou `lightest`.
+         */
+        brand: {
+          lightest: "#dbb994", // 9.2:1 sobre o café — texto em fundo escuro
+          light: "#c9a175", // 7.1:1 sobre o café
+          DEFAULT: "#b28151", // fundos, decoração e o título do hero
+          dark: "#7f5430", // 5.6:1 sobre o creme — texto pequeno em fundo claro
         },
         cream: {
           DEFAULT: "#f5ede1",

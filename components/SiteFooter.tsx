@@ -30,11 +30,11 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-olive-light">Navegação</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-light">Navegação</p>
           <ul className="space-y-2 text-sm text-cream/80">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="transition hover:text-olive-light">
+                <Link href={link.href} className="transition hover:text-brand-light">
                   {link.label}
                 </Link>
               </li>
@@ -43,7 +43,7 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-olive-light">Horário</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-light">Horário</p>
           <ul className="space-y-1.5 text-sm text-cream/80">
             {siteConfig.hours.map((h) => (
               <li key={h.days} className="flex justify-between gap-4">
@@ -55,12 +55,12 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-olive-light">Onde estamos</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-light">Onde estamos</p>
           <a
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-start gap-2 text-sm text-cream/80 transition hover:text-olive-light"
+            className="flex items-start gap-2 text-sm text-cream/80 transition hover:text-brand-light"
           >
             <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0" />
             <span>
@@ -75,7 +75,7 @@ export default function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram da Caramanhola"
-              className="rounded-full border border-cream/20 p-2 transition hover:border-olive-light hover:text-olive-light"
+              className="rounded-full border border-cream/20 p-2 transition hover:border-brand-light hover:text-brand-light"
             >
               <InstagramIcon className="h-4 w-4" />
             </a>
@@ -84,7 +84,7 @@ export default function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook da Caramanhola"
-              className="rounded-full border border-cream/20 p-2 transition hover:border-olive-light hover:text-olive-light"
+              className="rounded-full border border-cream/20 p-2 transition hover:border-brand-light hover:text-brand-light"
             >
               <FacebookIcon className="h-4 w-4" />
             </a>

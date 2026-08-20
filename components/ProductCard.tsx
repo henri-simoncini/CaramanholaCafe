@@ -22,7 +22,7 @@ export default function ProductCard({ item }: { item: MenuItem }) {
           <h3 className="font-title text-sm font-bold leading-snug text-coffee sm:min-w-0 sm:text-base">
             {item.name}
           </h3>
-          <span className="whitespace-nowrap font-sans text-sm font-semibold text-olive-dark sm:shrink-0 sm:text-base">
+          <span className="whitespace-nowrap font-sans text-sm font-semibold text-brand-dark sm:shrink-0 sm:text-base">
             {formatPrice(item.price)}
           </span>
         </div>

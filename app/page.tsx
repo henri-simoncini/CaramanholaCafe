@@ -47,8 +47,8 @@ function SobreSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <Reveal>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Sobre a loja</p>
-              <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-dark">Sobre a loja</p>
+              <h2 className="mt-3 font-title text-3xl font-black uppercase leading-tight text-coffee sm:text-4xl">
                 Muito mais que café e lanches
               </h2>
             </Reveal>
@@ -64,7 +64,7 @@ function SobreSection() {
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {differentiators.map(({ icon: Icon, title, text }, i) => (
                 <Reveal key={title} delay={260 + i * 100} className="flex gap-3">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-olive/10 text-olive">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand-dark">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
@@ -87,7 +87,7 @@ function SobreSection() {
                 className="object-cover"
               />
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-3xl bg-olive px-6 py-4 text-cream">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-3xl bg-brand px-6 py-4 text-coffee">
               <span className="text-sm font-semibold">Redes sociais</span>
               <div className="flex items-center gap-3">
                 <a
@@ -95,7 +95,7 @@ function SobreSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram da Caramanhola"
-                  className="rounded-full bg-cream/15 p-2 transition hover:bg-cream/25"
+                  className="rounded-full bg-coffee/10 p-2 transition hover:bg-coffee/20"
                 >
                   <InstagramIcon className="h-4 w-4" />
                 </a>
@@ -104,12 +104,12 @@ function SobreSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook da Caramanhola"
-                  className="rounded-full bg-cream/15 p-2 transition hover:bg-cream/25"
+                  className="rounded-full bg-coffee/10 p-2 transition hover:bg-coffee/20"
                 >
                   <FacebookIcon className="h-4 w-4" />
                 </a>
               </div>
-              <span className="text-xs text-cream/75">e muito mais</span>
+              <span className="text-xs text-coffee/70">e muito mais</span>
             </div>
           </Reveal>
         </div>
@@ -124,13 +124,13 @@ function CardapioSection() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Cardápio</p>
-            <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-dark">Cardápio</p>
+            <h2 className="mt-3 font-title text-3xl font-black uppercase leading-tight text-coffee sm:text-4xl">
               Sabores para todos os momentos
             </h2>
           </Reveal>
           <Reveal delay={140}>
-            <p className="mt-3 font-script text-2xl text-olive-dark sm:text-3xl">
+            <p className="mt-3 font-script text-2xl text-brand-dark sm:text-3xl">
               Do cafezinho da manhã ao lanche da tarde, prepare-se para se apaixonar por cada item.
             </p>
           </Reveal>
@@ -197,8 +197,8 @@ function ContatoSection() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
             <Reveal>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-olive">Contato</p>
-              <h2 className="mt-3 font-title text-3xl font-bold uppercase leading-tight text-coffee sm:text-4xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-dark">Contato</p>
+              <h2 className="mt-3 font-title text-3xl font-black uppercase leading-tight text-coffee sm:text-4xl">
                 Fale com a gente
               </h2>
             </Reveal>
@@ -212,7 +212,7 @@ function ContatoSection() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-brand px-8 py-4 text-xs font-bold uppercase tracking-wide text-coffee transition hover:bg-brand-light"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 Conversar no WhatsApp
@@ -224,14 +224,14 @@ function ContatoSection() {
                 Ou ligue para{" "}
                 <a
                   href={`tel:+${siteConfig.whatsappNumber}`}
-                  className="font-semibold text-olive underline-offset-2 hover:underline"
+                  className="font-semibold text-brand-dark underline-offset-2 hover:underline"
                 >
                   {siteConfig.whatsappDisplay}
                 </a>
               </p>
 
               <div className="mt-8 flex items-start gap-2 text-sm text-coffee/75">
-                <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-olive" />
+                <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand-dark" />
                 <span>
                   {siteConfig.address}
                   <br />

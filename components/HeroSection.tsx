@@ -47,10 +47,10 @@ export default function HeroSection() {
           <div className="min-w-0">
             {/* O título sai primeiro; o resto vem em escada atrás dele */}
             <Reveal>
-              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-olive">
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-dark">
                 <span aria-hidden="true" className="inline-flex gap-1">
-                  <span className="h-2 w-2 rounded-full bg-olive" />
-                  <span className="h-2 w-2 rounded-full bg-olive/40" />
+                  <span className="h-2 w-2 rounded-full bg-brand" />
+                  <span className="h-2 w-2 rounded-full bg-brand/40" />
                 </span>
                 Café · pão de queijo e mais
               </p>
@@ -59,7 +59,7 @@ export default function HeroSection() {
                   Os demais títulos usam a mesma Montserrat em 700. */}
               <h1 className="mt-5 font-title text-[3.5rem] font-black uppercase leading-[0.92] tracking-tight text-coffee sm:text-7xl lg:text-[5.5rem]">
                 <span className="block">Pare.</span>
-                <span className="block text-olive">Respire.</span>
+                <span className="block text-brand">Respire.</span>
                 <span className="block">Repita.</span>
               </h1>
             </Reveal>
@@ -74,7 +74,7 @@ export default function HeroSection() {
             <Reveal delay={260} className="mt-8 flex flex-wrap gap-3">
               <TabLink
                 to="cardapio"
-                className="rounded-full bg-olive px-8 py-4 text-xs font-bold uppercase tracking-wide text-cream transition hover:bg-olive-dark"
+                className="rounded-full bg-brand px-8 py-4 text-xs font-bold uppercase tracking-wide text-coffee transition hover:bg-brand-light"
               >
                 Ver cardápio
               </TabLink>
@@ -82,7 +82,7 @@ export default function HeroSection() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-olive/50 px-8 py-4 text-xs font-bold uppercase tracking-wide text-olive transition hover:bg-olive/5"
+                className="inline-flex items-center gap-2 rounded-full border border-brand/50 px-8 py-4 text-xs font-bold uppercase tracking-wide text-brand-dark transition hover:bg-brand/5"
               >
                 <WhatsAppIcon className="h-4 w-4" />
                 Fale conosco
@@ -95,11 +95,11 @@ export default function HeroSection() {
             {/* Formas decorativas atrás da foto, como no modelo */}
             <div
               aria-hidden="true"
-              className="absolute -top-6 right-6 h-56 w-56 rounded-full bg-olive/20 lg:h-72 lg:w-72"
+              className="absolute -top-6 right-6 h-56 w-56 rounded-full bg-brand/20 lg:h-72 lg:w-72"
             />
             <div
               aria-hidden="true"
-              className="absolute -top-2 left-2 h-40 w-40 rounded-full bg-olive/10 lg:h-52 lg:w-52"
+              className="absolute -top-2 left-2 h-40 w-40 rounded-full bg-brand/10 lg:h-52 lg:w-52"
             />
 
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
@@ -116,7 +116,7 @@ export default function HeroSection() {
 
             <div className="relative z-10 mx-auto -mt-10 w-[92%] rounded-2xl bg-coffee p-5 text-cream shadow-2xl lg:absolute lg:-bottom-6 lg:right-0 lg:mt-0 lg:w-[19rem]">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-olive-lightest">
+                <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-lightest">
                   Mais pedidos
                 </p>
                 <TabLink
@@ -145,7 +145,7 @@ export default function HeroSection() {
                         {item.description}
                       </p>
                     </div>
-                    <span className="shrink-0 text-sm font-semibold text-olive-lightest">
+                    <span className="shrink-0 text-sm font-semibold text-brand-lightest">
                       {formatPrice(item.price)}
                     </span>
                   </li>
@@ -159,7 +159,7 @@ export default function HeroSection() {
         <div className="mt-16 grid gap-8 border-t border-coffee/10 pt-10 sm:grid-cols-3 lg:mt-24">
           {perks.map(({ icon: Icon, title, text }, i) => (
             <Reveal key={title} delay={i * 120} className="flex gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-olive/30 text-olive">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand/30 text-brand-dark">
                 <Icon className="h-5 w-5" />
               </span>
               <div>
@@ -176,21 +176,21 @@ export default function HeroSection() {
         <Reveal className="grid overflow-hidden rounded-3xl bg-coffee lg:grid-cols-[minmax(0,1fr)_auto]">
           <div className="grid gap-6 p-7 sm:grid-cols-3">
             <div className="flex items-center gap-3">
-              <ClockIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
+              <ClockIcon className="h-6 w-6 shrink-0 text-brand-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Aberto hoje</p>
                 <p className="text-xs text-cream/65">{siteConfig.hoursShort}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <MapPinIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
+              <MapPinIcon className="h-6 w-6 shrink-0 text-brand-lightest" />
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-wide text-cream">Onde estamos</p>
                 <p className="text-xs text-cream/65">Campo Redondo, São Pedro da Aldeia</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <StarIcon className="h-6 w-6 shrink-0 text-olive-lightest" />
+              <StarIcon className="h-6 w-6 shrink-0 text-brand-lightest" />
               <div>
                 {/* O @ visível importa: é por ele que as pessoas procuram a
                     loja na busca do Instagram, não pelo ícone */}
@@ -225,7 +225,7 @@ export default function HeroSection() {
               contra ele — parecia que a barra escura acabava e sobrava texto
               solto no meio do nada. */}
           <div className="flex items-center gap-4 bg-white p-7 lg:rounded-l-3xl">
-            <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-olive/10 text-olive sm:flex">
+            <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand-dark sm:flex">
               <LeafIcon className="h-6 w-6" />
             </div>
             <div>
@@ -237,7 +237,7 @@ export default function HeroSection() {
               </p>
               <Link
                 href="/cardapio"
-                className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide text-olive hover:underline"
+                className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide text-brand-dark hover:underline"
               >
                 Abrir cardápio →
               </Link>

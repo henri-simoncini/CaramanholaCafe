@@ -35,20 +35,20 @@ export default function CardapioHeader() {
       {open && (
         <div id="menu-cardapio" className="border-t border-cream/10 bg-coffee px-5 pb-5">
           <nav className="flex flex-col gap-3 pt-4 text-sm font-medium">
-            <Link href="/" onClick={() => setOpen(false)} className="text-cream/90 hover:text-olive-light">
+            <Link href="/" onClick={() => setOpen(false)} className="text-cream/90 hover:text-brand-light">
               Início
             </Link>
-            <Link href="/#sobre" onClick={() => setOpen(false)} className="text-cream/90 hover:text-olive-light">
+            <Link href="/#sobre" onClick={() => setOpen(false)} className="text-cream/90 hover:text-brand-light">
               Sobre
             </Link>
-            <Link href="/#contato" onClick={() => setOpen(false)} className="text-cream/90 hover:text-olive-light">
+            <Link href="/#contato" onClick={() => setOpen(false)} className="text-cream/90 hover:text-brand-light">
               Contato
             </Link>
             <a
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-2 rounded-full bg-olive px-4 py-2 text-cream"
+              className="mt-1 inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-coffee"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Fale conosco
