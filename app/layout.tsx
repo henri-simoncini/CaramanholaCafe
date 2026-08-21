@@ -32,10 +32,44 @@ const body = Poppins({
   display: "swap",
 });
 
+/**
+ * Endereço público do site, usado para montar as URLs absolutas que as prévias
+ * de link exigem. Em produção a Vercel injeta VERCEL_PROJECT_PRODUCTION_URL;
+ * quando houver domínio próprio, basta definir NEXT_PUBLIC_SITE_URL.
+ */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
+const descricao =
+  "Café fresco, pão de queijo quentinho e lanches feitos na hora, em São Pedro da Aldeia. Veja o cardápio completo.";
+
 export const metadata: Metadata = {
-  title: "Caramanhola Lanches & Café",
-  description:
-    "O sabor que acompanha seus melhores momentos. Cafés, lanches e doces feitos com carinho na Caramanhola.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Caramanhola Lanches & Café",
+    // As páginas internas viram "Cardápio | Caramanhola Lanches & Café"
+    template: "%s | Caramanhola Lanches & Café",
+  },
+  description: descricao,
+  applicationName: "Caramanhola Lanches & Café",
+  // Sem isto, o link colado no WhatsApp aparece como texto seco, sem imagem
+  // nem título — e é assim que uma cafeteria divulga o endereço.
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Caramanhola Lanches & Café",
+    title: "Caramanhola Lanches & Café",
+    description: descricao,
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Caramanhola Lanches & Café",
+    description: descricao,
+  },
 };
 
 export default function RootLayout({

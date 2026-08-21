@@ -7,7 +7,8 @@ import { siteConfig } from "@/data/site";
 import { featuredItem, formatPrice, mostOrdered } from "@/data/menu";
 
 export const metadata: Metadata = {
-  title: "Cardápio | Caramanhola Lanches & Café",
+  // Só "Cardápio": o template do layout completa com o nome da casa
+  title: "Cardápio",
   description: "Confira o cardápio completo da Caramanhola: cafés, salgados, doces, bebidas e combos.",
 };
 

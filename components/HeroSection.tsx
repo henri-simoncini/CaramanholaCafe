@@ -67,7 +67,7 @@ export default function HeroSection() {
             <Reveal delay={140}>
               <p className="mt-6 max-w-md text-base leading-relaxed text-coffee/75">
                 Café fresco, pão de queijo quentinho e lanches feitos na hora — numa
-                parada tranquila no Centro de São Pedro da Aldeia.
+                parada tranquila em São Pedro da Aldeia.
               </p>
             </Reveal>
 
