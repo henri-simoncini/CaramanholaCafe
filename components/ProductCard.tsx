@@ -1,7 +1,52 @@
 import Image from "next/image";
 import { formatPrice, type MenuItem } from "@/data/menu";
 
-export default function ProductCard({ item }: { item: MenuItem }) {
+/**
+ * Card de produto em dois formatos.
+ *
+ * `horizontal` põe a foto à esquerda e o texto ao lado, para grades largas de
+ * poucas colunas. Sem ele, a foto fica em cima e o texto embaixo, que é o que
+ * cabe numa grade de três ou quatro colunas.
+ */
+export default function ProductCard({
+  item,
+  horizontal = false,
+}: {
+  item: MenuItem;
+  horizontal?: boolean;
+}) {
+  if (horizontal) {
+    return (
+      <div className="group flex overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-coffee/5 transition hover:shadow-md">
+        {/* self-stretch em vez de proporção fixa: a foto acompanha a altura do
+            card, senão uma descrição longa deixa um vazio ao lado dela.
+            O min-h garante altura decente quando o texto é curto. */}
+        <div className="relative w-32 shrink-0 self-stretch overflow-hidden sm:w-40 min-h-[8rem] sm:min-h-[10rem]">
+          {/* Imagem placeholder do Unsplash — trocar pela foto real do produto */}
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            sizes="(max-width: 768px) 40vw, 200px"
+            className="object-cover transition duration-300 group-hover:scale-105"
+          />
+        </div>
+
+        {/* min-w-0: sem isso o texto se recusa a encolher e empurra o preço
+            para fora do card */}
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 p-4 sm:p-5">
+          <h3 className="font-title text-base font-bold leading-snug text-coffee sm:text-lg">
+            {item.name}
+          </h3>
+          <p className="text-xs leading-relaxed text-coffee/70 sm:text-sm">{item.description}</p>
+          <span className="mt-0.5 font-sans text-base font-bold text-brand-dark sm:text-lg">
+            {formatPrice(item.price)}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-coffee/5 transition hover:shadow-md">
       <div className="relative h-32 w-full overflow-hidden sm:h-44">

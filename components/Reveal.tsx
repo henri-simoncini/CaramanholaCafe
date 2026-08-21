@@ -11,11 +11,14 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 export default function Reveal({
   children,
   delay = 0,
+  from = "baixo",
   className = "",
 }: {
   children: ReactNode;
   /** Atraso em milissegundos, para escalonar os elementos de uma seção */
   delay?: number;
+  /** De onde o conteúdo entra: subindo (padrão) ou descendo */
+  from?: "baixo" | "cima";
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -59,7 +62,9 @@ export default function Reveal({
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
-        visivel ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+        visivel
+          ? "translate-y-0 opacity-100"
+          : `opacity-0 ${from === "cima" ? "-translate-y-8" : "translate-y-8"}`
       } ${className}`}
     >
       {children}

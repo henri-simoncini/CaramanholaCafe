@@ -14,11 +14,14 @@ export default function CategoryTabs({
   tabs,
   active,
   onChange,
+  centered = false,
   ariaLabel = "Categorias do cardápio",
 }: {
   tabs: CategoryTab[];
   active: string;
   onChange: (id: string) => void;
+  /** Centraliza a barra quando ela cabe na tela; rolando, volta a alinhar à esquerda */
+  centered?: boolean;
   ariaLabel?: string;
 }) {
   const { trilhoRef, registrar, medida, animar } = useSlidingIndicator(active);
@@ -30,14 +33,19 @@ export default function CategoryTabs({
       aria-label={ariaLabel}
     >
       {/* relative aqui: é deste elemento que o offsetLeft dos botões é medido,
-          e é ele que rola junto com a pílula quando a barra passa da tela */}
+          e é ele que rola junto com a pílula quando a barra passa da tela.
+          mx-auto centraliza sem quebrar a rolagem: com w-fit, quando a barra
+          nao cabe ele deixa de ter efeito e o conteudo volta a comecar da
+          esquerda, em vez de ficar com o primeiro item cortado. */}
       <div
         ref={trilhoRef as React.RefObject<HTMLDivElement>}
-        className="relative flex w-fit items-center gap-1 rounded-full border border-coffee/10 bg-white/70 p-1.5 backdrop-blur-sm"
+        className={`relative flex w-fit items-center gap-1 rounded-full border border-coffee/10 bg-white/70 p-1.5 backdrop-blur-sm ${
+          centered ? "mx-auto" : ""
+        }`}
       >
         <span
           aria-hidden="true"
-          className={`absolute top-1/2 -translate-y-1/2 rounded-full bg-coffee ${
+          className={`absolute top-1/2 -translate-y-1/2 rounded-full bg-brand-dark ${
             animar ? "transition-[left,width] duration-300 ease-out" : ""
           }`}
           style={{

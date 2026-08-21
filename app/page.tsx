@@ -120,7 +120,7 @@ function SobreSection() {
 
 function CardapioSection() {
   return (
-    <section className="bg-cream-dark py-16 lg:py-20">
+    <section className="bg-white py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
@@ -136,9 +136,15 @@ function CardapioSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={260} className="mt-10">
-          <MenuBrowser highlightOnly />
-        </Reveal>
+        {/* max-w-5xl: com dois cards largos por linha, a largura cheia do
+            container deixaria cada um esticado demais e a foto pequena perto
+            do vazio ao lado do texto.
+            Sem Reveal aqui de propósito: o MenuBrowser anima a barra e os
+            cards por conta própria, e um reveal externo subindo brigaria com
+            os cards descendo. */}
+        <div className="mx-auto mt-10 max-w-5xl">
+          <MenuBrowser highlightOnly horizontal />
+        </div>
 
         <Reveal delay={360} className="mt-10 text-center">
           <Link
